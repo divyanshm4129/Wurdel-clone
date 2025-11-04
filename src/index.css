@@ -161,8 +161,8 @@ h3 {
   border-radius: 10px;
   cursor: pointer;
   position : fixed;
-  bottom: 50px;
   left: 40%;
+  bottom: 50px;
 }
 .restart-btn:hover {
   background-color: #1976d2;
@@ -206,7 +206,11 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  max-width: 600px;
+  max-width: 300px;
+  position: fixed;
+  bottom: 20%;
+  left: 80%;
+  transform: translateX(-50%);
 } 
 .keypad-button {
   width: 40px;

@@ -1,21 +1,22 @@
-import React from 'react'
+import React from 'react';
 
-export default function Keypad({usedKeys}) {
-    const[letters, setLetters] = React.useState([
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
-        'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-        'U', 'V', 'W', 'X', 'Y', 'Z'
-    ]);
-    
+export default function Keypad({ usedKeys, onKeyPress }) {
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
   return (
-    <div className='keypad'>
-        {letters&& letters.map((letter, index) => {
-            const color = usedKeys[letter.toLowerCase()];
-            return (
-            <button key={index} className= {`keypad-button ${color}`}>{letter}</button>)
-        })}
-
-      
+    <div className="keypad">
+      {letters.map((letter, index) => {
+        const color = usedKeys?.[letter.toLowerCase()] || '';
+        return (
+          <button
+            key={index}
+            className={`keypad-button ${color}`}
+            onClick={() => onKeyPress(letter)}
+          >
+            {letter}
+          </button>
+        );
+      })}
     </div>
-  )
+  );
 }
