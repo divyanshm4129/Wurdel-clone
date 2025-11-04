@@ -10,7 +10,7 @@ function App() {
   const [solution, setSolution] = useState("");
 
   useEffect(() => {
-    fetch("/data/db.json")
+    fetch("db.json")
       .then((response) => response.json())
       .then((data) => {
         const randomSolution = data[Math.floor(Math.random() * data.length)];
