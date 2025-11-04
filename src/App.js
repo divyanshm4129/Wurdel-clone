@@ -10,7 +10,7 @@ function App() {
   const [solution, setSolution] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:4001/solutions")
+    fetch("/data/db.json")
       .then((response) => response.json())
       .then((data) => {
         const randomSolution = data[Math.floor(Math.random() * data.length)];
