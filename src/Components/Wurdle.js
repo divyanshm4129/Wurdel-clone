@@ -22,9 +22,9 @@ export default function Wurdle({ solution }) {
     }
   }, [isCorrect, turn]);
 
-  // 🆕 handle virtual keypad clicks
   const handleVirtualKeyPress = (letter) => {
-    const event = { key: letter.toLowerCase() };
+    const key = letter === 'Enter' || letter === 'Backspace' ? letter : letter.toLowerCase();
+    const event = {key};
     keyupHandler(event);
   };
 

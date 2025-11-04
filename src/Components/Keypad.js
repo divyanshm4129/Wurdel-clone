@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
 export default function Keypad({ usedKeys, onKeyPress }) {
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
   return (
     <div className="keypad">
       {letters.map((letter, index) => {
-        const color = usedKeys?.[letter.toLowerCase()] || '';
+        const color = usedKeys?.[letter.toLowerCase()] || "";
         return (
           <button
             key={index}
@@ -17,6 +17,20 @@ export default function Keypad({ usedKeys, onKeyPress }) {
           </button>
         );
       })}
+
+      <button
+        className="keypad-button backspace-button"
+        onClick={() => onKeyPress("Backspace")}
+      >
+        ⌫
+      </button>
+
+      <button
+        className="keypad-button enter-button"
+        onClick={() => onKeyPress("Enter")}
+      >
+        Enter
+      </button>
     </div>
   );
 }

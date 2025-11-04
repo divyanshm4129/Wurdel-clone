@@ -323,3 +323,13 @@ h3 {
     padding: 20px;
   }
 }
+.enter-button, .backspace-button {
+  width: 80px;
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+}
+.enter-button:hover, .backspace-button:hover {
+  background-color: #555;
+}
+
