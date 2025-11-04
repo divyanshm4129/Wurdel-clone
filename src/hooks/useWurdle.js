@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { use, useState } from "react";
 
 const useWurdle = (solution) => {
   const [currentGuess, setCurrentGuess] = useState("");
@@ -6,6 +6,7 @@ const useWurdle = (solution) => {
   const [guesses, setGuesses] = useState([...Array(6)]); // 6 guesses, initially empty
   const [history, setHistory] = useState([]); // store past guesses
   const [isCorrect, setIsCorrect] = useState(false);
+  const [usedKeys, setUsedKeys] = useState({}); 
   
   
 
@@ -42,6 +43,25 @@ const useWurdle = (solution) => {
     });
     setHistory(prevHistory=>[...prevHistory, currentGuess]);
     setTurn(prevTurn=>prevTurn+1);
+    setUsedKeys((prevUsedKeys)=>{
+        let newKeys = {...prevUsedKeys};
+        formattedGuess.forEach((l)=>{
+            const currentColor = newKeys[l.key];
+            if(l.color==="green"){
+                newKeys[l.key]="green";
+                return;
+            }
+            if(l.color==="yellow" && currentColor !== "green"){
+                newKeys[l.key]="yellow";
+                return;
+            }
+            if(l.color==="grey" && currentColor !== "green" && currentColor !== "yellow"){
+                newKeys[l.key]="grey";
+                return;
+            } 
+        });
+        return newKeys;
+    });
     setCurrentGuess("");
   };
 
@@ -75,7 +95,7 @@ const useWurdle = (solution) => {
 
   };
 
-  return [currentGuess, keyupHandler, guesses, turn, isCorrect];
+  return [currentGuess, keyupHandler, guesses, turn, isCorrect, usedKeys];
 
 };
 

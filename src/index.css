@@ -191,12 +191,56 @@ h3 {
   margin-bottom: 20px;
 }
 
+
+
 .rules-page p {
   font-size: 1.1em;
   max-width: 500px;
   line-height: 1.6;
   text-align: left;
   color: #333;
+}
+.keypad {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 600px;
+} 
+.keypad-button {
+  width: 40px;
+  height: 50px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  font-size: 18px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  background-color: #e0e0e0;
+  transition: background-color 0.2s, transform 0.1s;
+} 
+.keypad-button:hover {
+  background-color: #d5d5d5;
+  transform: scale(1.05);
+}
+.keypad > .keypad-button.grey{
+  background-color: #a1a1a1;
+  color: white;
+  border-color: #a1a1a1;
+}
+.keypad > .keypad-button.yellow{
+  background-color: #e2cc68;
+  color: white;
+  border-color: #e2cc68;
+}
+.keypad > .keypad-button.green{
+  background-color: #5ac85a;
+  color: white;
+  border-color: #5ac85a;
 }
 
 .start-button {

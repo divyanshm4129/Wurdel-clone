@@ -4,9 +4,10 @@ import Grid from './Grid';
 import Modal from './Modal';
 import image from '../assets/logoo.png';
 import kiss from '../assets/kiss.mp4';
+import Keypad from './Keypad';
 
 export default function Wurdle({ solution }) {
-  const [currentGuess, keyupHandler, guesses, turn, isCorrect] = useWurdle(solution);
+  const [currentGuess, keyupHandler, guesses, turn, isCorrect, usedKeys] = useWurdle(solution);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -29,12 +30,12 @@ export default function Wurdle({ solution }) {
       </div>
 
       <div className="game-section">
-        {solution}
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
         {showModal && <Modal isCorrect={isCorrect} turn={turn} solution={solution} onClose={() => setShowModal(false)} />}
       </div>
         <button className="restart-btn" onClick={() => window.location.reload()}>🔁 Restart Game
         </button>
+        <Keypad usedKeys={usedKeys}/>
 
     </div>
   );
