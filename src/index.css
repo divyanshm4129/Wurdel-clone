@@ -1,0 +1,241 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.grid {
+  margin-top: 10px;
+}
+.game-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem; 
+  height: 100vh;
+  background-color: #fdfdfd;
+}
+
+.image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-logo {
+  width: 400px;
+  height: auto;
+  margin-left: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+h3 {
+  color: #333;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 2.5rem;
+}
+
+.game-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.row>div {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #000;
+  margin: 0px 2px;
+  font-size: 24px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grey{
+  --background-color: #a1a1a1;
+  --background: #a1a1a1;
+  animation: Flip 0.5s ease forwards;
+}
+.yellow{
+  --background-color: #e2cc68;
+  --background: #e2cc68;
+  animation: Flip 0.5s ease forwards;
+}
+.green{
+  --background-color: #5ac85a;
+  --background: #5ac85a;
+  animation: Flip 0.5s ease forwards;
+}  
+.row>div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.row>div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.row>div:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.row>div:nth-child(5) {
+  animation-delay: 0.8s;
+}
+.row.current>div.filled{
+  animation: Bounce 0.1s ease-in-out forwards;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px 30px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.background-video {
+  border-radius: 20px;
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-bottom: 5px;
+  padding: 9px 0px;
+
+
+}
+.modal p {
+  font-size: 1.2em;
+  margin: 10px 0; 
+  font-weight: bold;
+}
+.close-btn {
+  position: fixed;
+  top: 3px;
+  right: 3px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  background-color: #e4e2e2;
+  border-radius: 5px;
+  color: #302f2f;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+  z-index: 2;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+  color: #3a3939;
+}
+
+.solution {
+  font-weight: bold;
+  color: #5ac85a;
+  font-size: 1.5em;
+}
+.restart-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  position : fixed;
+  bottom: 50px;
+  left: 40%;
+}
+.restart-btn:hover {
+  background-color: #1976d2;
+}
+.rules-page {
+
+  
+  border: #000 2px solid ;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 60px;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-bottom: 100px;
+  padding: 20px;
+  background-color: #f9f9ff;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.rules-page h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.rules-page p {
+  font-size: 1.1em;
+  max-width: 500px;
+  line-height: 1.6;
+  text-align: left;
+  color: #333;
+}
+
+.start-button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: #43a047;
+}
+
+
+
+
+@keyframes Flip{
+  0% { transform: rotateX(0deg); 
+  background: #fff  ;
+border-color: #333;}
+  45% { transform: rotateX(90deg);
+  background: #fff  ;
+border-color: #333; }
+  55% { transform: rotateX(90deg);
+  background: var(--background);
+border-color: var(--background-color); }
+  100% { transform: rotateX(0deg);
+  background: var(--background);
+border-color: var(--background-color); }
+}
+@keyframes Bounce{
+  0%{ transform: scale(1);
+  border-color: #fff;}
+  50%{ transform: scale(1.1);}
+  100%{ transform: scale(1);
+  border-color: #333; }
+}
+
