@@ -13,7 +13,7 @@ function App() {
     fetch("db.json")
       .then((response) => response.json())
       .then((data) => {
-        const randomSolution = data[Math.floor(Math.random() * data.length)];
+        const randomSolution = data.solutions[Math.floor(Math.random() * data.solutions.length)];
         setSolution(randomSolution.word);
 
       })
