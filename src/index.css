@@ -209,19 +209,26 @@ h3 {
 }
 
 /* ==== KEYPAD ==== */
+/* ==== KEYPAD ==== */
 .keypad {
   margin-top: 20px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 8px;
-  max-width: 350px;
   position: fixed;
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
 }
 
+.keypad-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Base button style */
 .keypad-button {
   width: 45px;
   height: 55px;
@@ -238,24 +245,40 @@ h3 {
   transition: background-color 0.2s, transform 0.1s;
 }
 
-.keypad-button:hover {
-  background-color: #d5d5d5;
-  transform: scale(1.05);
-}
-
-.keypad > .keypad-button.grey {
+/* Colors from usedKeys */
+.keypad .keypad-button.grey {
   background-color: #a1a1a1;
   color: white;
 }
 
-.keypad > .keypad-button.yellow {
+.keypad .keypad-button.yellow {
   background-color: #e2cc68;
   color: white;
 }
 
-.keypad > .keypad-button.green {
+.keypad .keypad-button.green {
   background-color: #5ac85a;
   color: white;
+}
+
+/* Enter & Backspace */
+.enter-button,
+.backspace-button {
+  width: 80px;
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+}
+
+.enter-button:hover,
+.backspace-button:hover {
+  background-color: #555;
+}
+
+/* Hover animation */
+.keypad-button:hover {
+  background-color: #d5d5d5;
+  transform: scale(1.05);
 }
 
 /* ==== ANIMATIONS ==== */
@@ -323,13 +346,5 @@ h3 {
     padding: 20px;
   }
 }
-.enter-button, .backspace-button {
-  width: 80px;
-  background-color: #333;
-  color: white;
-  font-weight: bold;
-}
-.enter-button:hover, .backspace-button:hover {
-  background-color: #555;
-}
+
 

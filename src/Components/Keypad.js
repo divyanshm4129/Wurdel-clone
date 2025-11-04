@@ -1,36 +1,41 @@
 import React from "react";
 
 export default function Keypad({ usedKeys, onKeyPress }) {
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const rows = [
+    "QWERTYUIOP".split(""),
+    "ASDFGHJKL".split(""),
+    ["Backspace", ..."ZXCVBNM".split(""), "Enter"],
+  ];
 
   return (
     <div className="keypad">
-      {letters.map((letter, index) => {
-        const color = usedKeys?.[letter.toLowerCase()] || "";
-        return (
-          <button
-            key={index}
-            className={`keypad-button ${color}`}
-            onClick={() => onKeyPress(letter)}
-          >
-            {letter}
-          </button>
-        );
-      })}
+      {rows.map((row, rIndex) => (
+        <div key={rIndex} className="keypad-row">
+          {row.map((key, i) => {
+            const color =
+              key !== "Enter" && key !== "Backspace"
+                ? usedKeys?.[key.toLowerCase()] || ""
+                : "";
 
-      <button
-        className="keypad-button backspace-button"
-        onClick={() => onKeyPress("Backspace")}
-      >
-        ⌫
-      </button>
+            const label =
+              key === "Backspace" ? "⌫" : key === "Enter" ? "Enter" : key;
 
-      <button
-        className="keypad-button enter-button"
-        onClick={() => onKeyPress("Enter")}
-      >
-        Enter
-      </button>
+            return (
+              <button
+                key={i}
+                className={`keypad-button ${
+                  key === "Enter" || key === "Backspace"
+                    ? `${key.toLowerCase()}-button`
+                    : color
+                }`}
+                onClick={() => onKeyPress(key)}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+      ))}
     </div>
   );
 }
