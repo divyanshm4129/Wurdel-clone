@@ -32,7 +32,7 @@ export default function Wurdle({ solution }) {
     <div className="game-container">
       <div className="image-section">
         <img src={image} alt="Wurdle Logo" className="game-logo" />
-        <h3>GOOD LUCK! {solution}</h3>
+        <h3>GOOD LUCK! </h3>
       </div>
 
       <div className="game-section">
